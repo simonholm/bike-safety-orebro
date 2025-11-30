@@ -1,0 +1,22 @@
+{
+  "project": "bike-safety-orebro",
+  "version": "0.0.1",
+  "status": "early-stage-wip",
+  "modules": {
+    "load": "complete",
+    "classify": "placeholder",
+    "export": "complete",
+    "geometry": "placeholder"
+  },
+  "data_inputs": [
+    "data/orebro.osm.pbf"
+  ],
+  "outputs": [
+    "results/danger_segments.geojson",
+    "results/danger_intersections.geojson"
+  ],
+  "next_tasks": [
+    "geometry_extraction",
+    "missing_cycleway_detection",
+    "intersection_degree_scoring"
+  ]

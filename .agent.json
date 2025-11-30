@@ -1,0 +1,16 @@
+{
+  "project_name": "bike-safety-orebro",
+  "language": "rust",
+  "root": "src/",
+  "entrypoint": "src/main.rs",
+  "data_paths": ["data/"],
+  "output_paths": ["results/"],
+  "current_status": "early-stage-wip",
+  "modules": [
+    "osm/load.rs",
+    "osm/classify.rs",
+    "osm/export.rs",
+    "osm/geometry.rs"
+  ],
+  "notes": "Classification logic and geometry extraction not yet implemented."
+}
