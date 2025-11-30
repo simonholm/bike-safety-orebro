@@ -1,30 +1,52 @@
 # Bike Safety Örebro
 
-This project analyzes bicycle infrastructure and potential danger zones in Örebro
-using a lightweight Rust-based pipeline. The goal is to extract OpenStreetMap data,
-identify missing cycleways, detect risky intersections, and export results as
-GeoJSON for visualization in QGIS or other GIS tools.
+This project is an **early-stage, work-in-progress (WIP)** Rust pipeline for analyzing
+bicycle infrastructure and potential danger zones in Örebro, Sweden.
+It extracts OpenStreetMap (OSM) data, identifies missing cycleways, detects risky
+intersections, and exports results as GeoJSON for visualization in GIS tools such as QGIS.
 
-## What This Project Does
-- Loads a local OSM PBF extract (Örebro or Sweden-wide)
-- Classifies missing cycleways and risky intersections
-- Exports results into the results/ directory as GeoJSON
+> **Status:** Very early scaffold.
+> Most analysis logic is not implemented yet.
+> The current version loads OSM data and exports empty GeoJSON layers.
+
+## Goals
+- Load and parse OSM PBF extracts (Örebro or full Sweden)
+- Identify road segments missing cycleway infrastructure
+- Detect complex or high-risk intersections
+- Export GIS-ready layers for validation and visualization
+- Support a hybrid Rust + QGIS workflow
 
 ## Getting Started
+
 ### 1. Download OSM Data
-Get Sweden extract from Geofabrik and place it at data/orebro.osm.pbf
+Download the Sweden extract from Geofabrik:
+https://download.geofabrik.de/europe/sweden.html
+
+Place the file at:
+data/orebro.osm.pbf
 
 ### 2. Run the Analyzer
     cargo run
 
+Outputs (currently empty placeholder layers):
+results/danger_segments.geojson
+results/danger_intersections.geojson
+
 ### 3. Visualize in QGIS
-Open the GeoJSON files in results/ and style them freely.
+Open the generated GeoJSON files in QGIS and apply styling from the qgis/ folder.
 
 ## Project Structure
-data/     OSM input
-results/  GeoJSON output
-src/osm/  Rust modules
-qgis/     (Optional) styling
+data/        Input OSM PBF
+results/     Output GeoJSON layers
+src/osm/     Rust modules (load, classify, export)
+qgis/        Optional QGIS styling
+Cargo.toml   Dependencies
 
-## Status
-Functional scaffold; analysis logic will expand over time.
+## Roadmap (WIP)
+- Real classification of missing cycleways
+- Intersection-degree / topology-based risk scoring
+- Gap detection between cycleway segments
+- CLI parameters (--city, --input, --output)
+- QGIS project template for consistent styling
+
+## License
